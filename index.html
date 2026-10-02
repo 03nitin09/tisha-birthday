@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#ff7fb0">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Tisha 💗">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.png">
+<title>Tisha.exe — Birthday Case File</title>
+<style>
+:root{
+  --bg:#0d0811; --panel:#17101d; --panel2:#211526; --ink:#fff7f0;
+  --muted:#cbbccc; --pink:#ff7fb0; --gold:#ffd58a; --line:#3b2840;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:radial-gradient(circle at 50% 0%,#321a35 0,#0d0811 45%,#08050a 100%);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+body{min-height:100vh;overflow-x:hidden}
+button{font:inherit}
+.wrap{max-width:720px;margin:auto;padding:18px 16px 70px}
+.screen{min-height:100vh;display:flex;align-items:center;justify-content:center}
+.card{background:linear-gradient(145deg,rgba(35,20,39,.96),rgba(17,10,22,.96));border:1px solid var(--line);border-radius:28px;padding:24px;box-shadow:0 18px 60px rgba(0,0,0,.45);margin:18px 0}
+.center{text-align:center}
+.kicker{letter-spacing:.18em;text-transform:uppercase;font-size:11px;color:var(--gold);font-weight:800}
+h1{font-size:clamp(34px,10vw,62px);line-height:.98;margin:10px 0 16px}
+h2{font-size:28px;margin:8px 0 10px}
+h3{margin:0 0 8px}
+p{line-height:1.6;color:#eee0eb}
+.small{font-size:13px;color:var(--muted)}
+.btn{border:0;border-radius:999px;padding:14px 20px;background:linear-gradient(90deg,var(--pink),#ffb2ca);color:#250d19;font-weight:900;cursor:pointer;box-shadow:0 8px 25px rgba(255,127,176,.25);margin:5px}
+.btn.secondary{background:#2a1a2d;color:var(--ink);border:1px solid #53385a;box-shadow:none}
+.btn:active{transform:scale(.98)}
+.hidden{display:none!important}
+.progress{height:6px;background:#28192c;border-radius:10px;overflow:hidden;margin:8px 0 20px}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pink),var(--gold));transition:.5s}
+.badge{display:inline-block;padding:7px 10px;border:1px solid #5b3b60;border-radius:999px;color:#ffd6e5;font-size:12px;margin:3px}
+.heroPhoto{width:100%;max-height:58vh;object-fit:cover;border-radius:22px;border:1px solid #4a334e;display:block}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.duo img{width:100%;aspect-ratio:1/1.25;object-fit:cover;border-radius:18px;border:1px solid #4a334e}
+.quote{font-size:23px;line-height:1.25;color:#fff;margin:15px 0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.grid img{width:100%;aspect-ratio:1/1.2;object-fit:cover;border-radius:17px;border:1px solid #4a334e}
+video{width:100%;border-radius:18px;border:1px solid #4a334e;background:#000;margin-top:10px}
+.timeline{border-left:2px solid #5b3b60;margin:18px 0 5px;padding-left:18px}
+.event{margin:0 0 18px;position:relative}
+.event:before{content:"";width:10px;height:10px;border-radius:50%;background:var(--pink);position:absolute;left:-24px;top:7px;box-shadow:0 0 15px var(--pink)}
+.secret{background:#120b16;border:1px dashed #69476f;border-radius:18px;padding:16px;margin-top:12px}
+.type{min-height:120px;white-space:pre-wrap;font-family:Georgia,serif;font-size:20px;line-height:1.6;color:#ffeaf3}
+.choice{display:grid;gap:10px;margin-top:14px}
+.choice button{background:#211526;border:1px solid #523757;color:#fff;padding:14px;border-radius:16px;text-align:left}
+.choice button:hover{border-color:var(--pink)}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:#fff;color:#180c14;padding:12px 18px;border-radius:999px;font-weight:800;z-index:20;box-shadow:0 10px 35px #0008}
+.confetti{position:fixed;inset:0;pointer-events:none;z-index:30}
+.confetti span{position:absolute;top:-20px;width:8px;height:14px;border-radius:2px;animation:fall 2.8s linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:.9}}
+.heart{position:fixed;pointer-events:none;animation:float 1.5s ease-out forwards;z-index:25;font-size:24px}
+@keyframes float{from{transform:translateY(0) scale(.7);opacity:1}to{transform:translateY(-130px) scale(1.4);opacity:0}}
+.cake{font-size:85px;cursor:pointer;display:inline-block;transition:.2s}
+.cake:active{transform:scale(.9)}
+.footer{text-align:center;color:#8f7b92;font-size:12px;margin-top:35px}
+@media(max-width:420px){.card{padding:18px;border-radius:23px}.grid{gap:7px}.duo{gap:7px}}
+.appbar{position:sticky;top:0;z-index:15;backdrop-filter:blur(16px);background:rgba(13,8,17,.72);border-bottom:1px solid rgba(255,255,255,.06);padding:10px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.appbrand{display:flex;align-items:center;gap:9px;font-weight:900;font-size:13px}
+.appdot{width:28px;height:28px;border-radius:9px;object-fit:cover;border:1px solid #5b3b60}
+.install{border:1px solid #714b67;background:#2a182d;color:#fff;border-radius:999px;padding:8px 12px;font-size:12px;font-weight:800}
+.install.hidden{display:none}
+.pwa-note{font-size:12px;color:#bdaabd;margin-top:8px}
+.safe{padding-bottom:env(safe-area-inset-bottom)}
+</style>
+</head>
+<body>
+<div class="appbar">
+  <div class="appbrand"><img class="appdot" src="icon-192.png" alt=""> TISHA UNIVERSE</div>
+  <button id="installBtn" class="install hidden">Install App</button>
+</div>
+<div id="app"></div>
+<script>
+const A="assets/";
+const app=document.getElementById("app");
+let step=0;
+
+const sections=[
+`<div class="card center">
+  <div class="kicker">TOP SECRET • BIRTHDAY DIVISION</div>
+  <h1>TISHA.EXE<br>HAS TURNED<br>ANOTHER YEAR OLDER.</h1>
+  <p>There is an extremely serious investigation underway.</p>
+  <div class="badge">Subject: Tishu</div>
+  <div class="badge">Alias: Beta</div>
+  <div class="badge">Known weakness: Being adorable</div>
+  <p class="small">Warning: opening this file may cause smiling, eye-rolling and temporary boyfriend appreciation.</p>
+  <p class="pwa-note">📱 On Android/Chrome: use <b>Install App</b> when it appears. On iPhone: Safari → Share → <b>Add to Home Screen</b>.</p>
+  <button class="btn" onclick="next()">OPEN THE CASE 🔓</button>
+</div>`,
+
+`<div class="card">
+  <div class="kicker">CASE 01 • ORIGIN STORY</div>
+  <h2>Before Tishu became Tishu…</h2>
+  <p>There was a tiny Beta who had absolutely no idea that one day she'd become someone's favourite person to annoy.</p>
+  <div class="duo">
+    <img src="${A}01_tisha_childhood.png">
+    <img src="${A}02_tisha_today.png">
+  </div>
+  <p class="quote">“Same girl. Bigger dreams. Much more dangerous attitude.” 😭</p>
+  <button class="btn" onclick="next()">CONTINUE →</button>
+</div>`,
+
+`<div class="card">
+  <div class="kicker">CASE 02 • THE 12-YEAR-OLD INCIDENT</div>
+  <h2>We met at 12.</h2>
+  <p>And somehow, after all these years, the person who knows the most embarrassing version of me is still the person I want beside me.</p>
+  <div class="timeline">
+    <div class="event"><b>Age 12</b><br>Best friends. Zero idea what was coming.</div>
+    <div class="event"><b>Years later</b><br>Somehow upgraded from “best friend” to “person I fight with for absolutely no reason.” 😂</div>
+    <div class="event"><b>Today</b><br>Still talking. Still laughing. Still fighting. Still together.</div>
+  </div>
+  <div class="secret"><b>Official relationship statistics:</b><br>
+  Fights: classified 🔒<br>
+  Secrets: basically none<br>
+  Comfort level: dangerously high<br>
+  Love: annoyingly permanent ❤️</div>
+  <button class="btn" onclick="next()">I ACCEPT THE EVIDENCE →</button>
+</div>`,
+
+`<div class="card">
+  <div class="kicker">CASE 03 • EVIDENCE ROOM</div>
+  <h2>Exhibit A: The Suspect</h2>
+  <p>She claims she is innocent. The photographs disagree.</p>
+  <div class="grid">
+    <img src="${A}03_tisha_smile.jpg">
+    <img src="${A}04_tisha_candid.jpg">
+    <img src="${A}05_tisha_sky.jpg">
+    <img src="${A}06_tisha_sky2.jpg">
+  </div>
+  <p class="small">Finding: 100% cute. 0% trustworthy when she says “I'm not angry.”</p>
+  <button class="btn" onclick="next()">SHOW ME MORE EVIDENCE →</button>
+</div>`,
+
+`<div class="card">
+  <div class="kicker">CASE 04 • VIDEO EVIDENCE</div>
+  <h2>The CCTV Footage</h2>
+  <p>Unfortunately, the evidence confirms that we are both idiots together.</p>
+  <video controls playsinline preload="metadata" src="${A}08_video_tisha.mp4"></video>
+  <p class="small">Evidence 01 — Tishu being Tishu.</p>
+  <video controls playsinline preload="metadata" src="${A}09_video_us_fun.mp4"></video>
+  <p class="small">Evidence 02 — two people who should probably be supervised.</p>
+  <video controls playsinline preload="metadata" src="${A}10_video_us_car.mp4"></video>
+  <p class="small">Evidence 03 — absolutely no explanation required.</p>
+  <button class="btn" onclick="next()">OPEN THE COUPLE FILE →</button>
+</div>`,
+
+`<div class="card">
+  <div class="kicker">CASE 05 • US</div>
+  <h2>Somehow, it's always us.</h2>
+  <img class="heroPhoto" src="${A}07_us_together.jpg">
+  <p class="quote">“We can fight about literally anything… and still somehow end the day on the same team.”</p>
+  <p>That is probably my favourite thing about us. We don't have to pretend around each other. Big thing, small thing, stupid thing, serious thing — we tell each other everything.</p>
+  <p>You're my girlfriend, but before that, you were my best friend. And honestly, that part never stopped.</p>
+  <button class="btn" onclick="next()">ONE LAST TEST →</button>
+</div>`,
+
+`<div class="card center">
+  <div class="kicker">FINAL TEST • VERY SCIENTIFIC</div>
+  <h2>What are you to me?</h2>
+  <p>Choose carefully. Your answer may determine the next 5 minutes of your birthday.</p>
+  <div class="choice">
+    <button onclick="wrong()">A. A random girl who somehow knows all my secrets</button>
+    <button onclick="wrong()">B. My professional fighting partner</button>
+    <button onclick="correct()">C. My best friend, favourite person and forever headache ❤️</button>
+    <button onclick="wrong()">D. Someone I tolerate for the snacks</button>
+  </div>
+  <div id="answer" class="secret hidden"></div>
+</div>`,
+
+`<div class="card center">
+  <div class="kicker">FINAL BOSS • BIRTHDAY CAKE</div>
+  <h2>Make a wish, Beta.</h2>
+  <p>Tap the cake. Yes, the cake. Don't overthink it.</p>
+  <div class="cake" onclick="cake()">🎂</div>
+  <p id="cakeMsg" class="quote"></p>
+  <div id="finalBox" class="hidden">
+    <div class="secret">
+      <div class="kicker">MESSAGE FROM YOUR IDIOT</div>
+      <div class="type" id="letter"></div>
+    </div>
+    <button class="btn" onclick="hearts()">PRESS THIS IF YOU LOVE ME ❤️</button>
+    <button class="btn secondary" onclick="restart()">START AGAIN ↻</button>
+  </div>
+</div>`
+];
+
+function render(){
+  app.innerHTML=`<div class="wrap">
+    <div class="progress"><i style="width:${((step)/(sections.length-1))*100}%"></i></div>
+    ${sections[step]}
+    <div class="footer">TISHA // BIRTHDAY CASE FILE // MADE WITH ZERO MONEY & WAY TOO MUCH LOVE</div>
+  </div>`;
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function next(){ if(step<sections.length-1){step++; render();}}
+function wrong(){
+  const x=document.getElementById("answer");
+  x.classList.remove("hidden");
+  x.innerHTML="❌ Incorrect. Please stop pretending. The system knows you too well. 😂<br><br><b>Try again, birthday girl.</b>";
+}
+function correct(){
+  const x=document.getElementById("answer");
+  x.classList.remove("hidden");
+  x.innerHTML="✅ CORRECT.<br><br>Honestly, after knowing you since we were 12, I don't think I could have picked anyone else. ❤️<br><br><button class='btn' onclick='next()'>UNLOCK THE FINAL BOSS →</button>";
+}
+function cake(){
+  document.getElementById("cakeMsg").innerHTML="🎉 HAPPY BIRTHDAY, TISHU! 🎉<br><span class='small'>Cake successfully delivered through the internet. Technology has peaked.</span>";
+  document.getElementById("finalBox").classList.remove("hidden");
+  const text=`Happy birthday, Beta. ❤️
+
+I know I annoy you.
+You know you annoy me.
+We fight over things that would probably sound ridiculous if anyone else heard them.
+
+And somehow... at the end of the day, it's still us.
+
+We've known each other since we were 12. Before we became “us”, you were my best friend. I think that's why being with you feels so comfortable — I never have to pretend to be someone else around you.
+
+You've seen the stupid version of me, the serious version, the angry version, the happy version... basically the entire unedited package. 😂
+
+And I've seen all your versions too — tiny Beta, dramatic Tishu, sweet Tishu, angry Tishu, and the one who says “I'm fine” when I very clearly know you're not. 😭
+
+Thank you for caring about me, for trusting me with the big things and the tiny things, and for being the person with whom I can be completely myself.
+
+Five years, countless fights, ridiculous conversations, hundreds of memories...
+
+And if I had to choose again?
+
+I'd still choose my best friend.
+
+Happy birthday, Tishu.
+Now please remain exactly this annoying for the rest of my life. ❤️
+
+— Your favourite idiot`;
+  typewrite(text);
+}
+function typewrite(text){
+  const el=document.getElementById("letter"); el.textContent="";
+  let i=0; const timer=setInterval(()=>{el.textContent+=text[i++]||""; if(i>text.length)clearInterval(timer)},18);
+}
+function hearts(){
+  for(let i=0;i<28;i++){
+    const h=document.createElement("div"); h.className="heart"; h.textContent=["❤️","💗","💕","✨","😂"][Math.floor(Math.random()*5)];
+    h.style.left=(5+Math.random()*90)+"vw"; h.style.top=(55+Math.random()*35)+"vh";
+    h.style.animationDelay=(Math.random()*.8)+"s"; document.body.appendChild(h);
+    setTimeout(()=>h.remove(),2200);
+  }
+  const c=document.createElement("div"); c.className="confetti";
+  for(let i=0;i<70;i++){let s=document.createElement("span");s.style.left=Math.random()*100+"vw";s.style.animationDelay=Math.random()*1.2+"s";s.style.transform=`rotate(${Math.random()*360}deg)`;c.appendChild(s)}
+  document.body.appendChild(c); setTimeout(()=>c.remove(),4000);
+}
+function restart(){step=0;render()}
+render();
+
+let deferredPrompt = null;
+const installBtn = document.getElementById("installBtn");
+
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  installBtn.classList.remove("hidden");
+});
+
+installBtn.addEventListener("click", async () => {
+  if (!deferredPrompt) return;
+  deferredPrompt.prompt();
+  await deferredPrompt.userChoice;
+  deferredPrompt = null;
+  installBtn.classList.add("hidden");
+});
+
+window.addEventListener("appinstalled", () => {
+  installBtn.classList.add("hidden");
+});
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js"));
+}
+</script>
+</body>
+</html>

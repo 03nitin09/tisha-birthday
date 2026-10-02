@@ -1,0 +1,29 @@
+{
+  "name": "Tisha Birthday Universe",
+  "short_name": "Tisha \ud83d\udc97",
+  "description": "A tiny birthday universe made for Tisha.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0d0811",
+  "theme_color": "#ff7fb0",
+  "categories": [
+    "lifestyle",
+    "entertainment"
+  ],
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
